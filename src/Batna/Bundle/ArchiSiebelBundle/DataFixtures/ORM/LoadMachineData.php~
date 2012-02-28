@@ -1,0 +1,16 @@
+<?php
+
+namespace Batna\ArchiSiebelBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Batna\ArchiSiebelBundle\Entity\Machine;
+
+class LoadCategoryData implements FixtureInterface
+{
+    public function load($manager)
+    {    
+        
+
+    }
+
+}

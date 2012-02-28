@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+{% include "::appels.html.twig" %}
+
+<title>{% block title %}BatnaTools{% endblock %}</title>
+
+</head>
+
+<body>
+
+<!--Début header-->
+<div id="mws-header" class="clearfix">
+    <!-- Logo Wrapper -->
+    <div id="mws-logo-container">
+        <div id="mws-logo-wrap">
+            <img src="{{ asset('images/mws-logo.png') }}" alt="mws admin" />
+         </div>
+     </div>
+ 
+     <!-- User Area Wrapper -->
+     <div id="mws-user-tools" class="clearfix">
+        <!-- User Notifications -->
+        <div id="mws-user-notif" class="mws-dropdown-menu">
+            <a href="#" class="mws-i-24 i-alert-2 mws-dropdown-trigger">
+                 Notifications
+             </a>
+             <span class="mws-dropdown-notif">35</span>
+             <div class="mws-dropdown-box">
+                 <div class="mws-dropdown-content">
+                     <ul class="mws-notifications">
+                        <!-- Here Goes all the notifications -->
+                     </ul>
+                     <div class="mws-dropdown-viewall">
+                        <a href="#">View All Notifications</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+ 
+         <!-- User Messages -->
+         <div id="mws-user-message" class="mws-dropdown-menu">
+             <a href="#" class="mws-i-24 i-message mws-dropdown-trigger">Messages</a>
+             <span class="mws-dropdown-notif">35</span>
+             <div class="mws-dropdown-box">
+                 <div class="mws-dropdown-content">
+                     <ul class="mws-messages">
+                         <!-- Here goes all the messages -->
+                      </ul>
+                     <div class="mws-dropdown-viewall">
+                         <a href="#">View All Messages</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+ 
+        <!-- User Functions -->
+        <div id="mws-user-info" class="mws-inset">
+            <div id="mws-user-photo">
+                <img src="example/profile.jpg" alt="User Photo" />
+            </div>
+            <div id="mws-user-functions">
+                <div id="mws-username">
+                    Hello, John Doe
+                </div>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Change Password</a></li>
+                    <li><a href="index.php">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+       <!-- End User Functions -->
+    </div>
+</div>
+<!--Fin header-->
+
+
+
+<!--Debut corps-->
+<div id="mws-wrapper">
+   <!-- Necessary markup, do not remove -->
+    <div id="mws-sidebar-stitch"></div>
+    <div id="mws-sidebar-bg"></div>
+     
+    <!-- Sidebar Wrapper -->
+    <div id="mws-sidebar">
+     
+        <!-- Search Box -->
+        <div id="mws-searchbox" class="mws-inset">
+            	<form action="icons.html">
+                	<input type="text" class="mws-search-input" />
+                    <input type="submit" class="mws-search-submit" />
+                </form>
+            </div>
+ 
+        <!-- Main Navigation -->
+        <div id="mws-navigation">
+            <ul>
+                  <li><a href="{{ path('machine') }}" class="mws-i-24 i-joomla">Machines</a></li>
+                  <li><a href="{{ path('gateway') }}" class="mws-i-24 i-plixi">Gateway</a></li>
+                  <li><a href="{{ path('enterpriseserver') }}" class="mws-i-24 i-globe">Enterprise</a></li>
+                  <li><a href="{{ path('siebelserver') }}" class="mws-i-24 i-abacus">Server</a></li>
+            </ul>
+        </div>
+        <!-- End Navigation -->
+ 
+    </div>
+ 
+    <!-- Container Wrapper -->
+    <div id="mws-container" class="clearfix">
+     
+        <!-- Main Container -->
+        <div class="container">
+        {% block batnaarchi_body %}{% endblock %}
+        </div>
+        <!-- End Main Container -->
+         
+        <!-- Footer -->
+        <div id="mws-footer" style="min-height:1000px;">
+            Batna 2012. Tous droits réservés.
+        </div>
+        <!-- End Footer -->
+    </div>
+    <!-- End Container Wrapper -->
+ 
+</div>
+<!--Fin corps-->
+</body>
+</html>

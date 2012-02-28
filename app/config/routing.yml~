@@ -1,0 +1,3 @@
+BatnaArchiSiebelBundle:
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing.yml"
+    prefix:   /Siebel

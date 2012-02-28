@@ -1,0 +1,111 @@
+machine:
+    pattern:  /machine
+    defaults: { _controller: BatnaArchiSiebelBundle:Machine:index }
+
+machine_show:
+    pattern:  /machine/show/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Machine:show }
+
+machine_edit:
+    pattern:  /machine/edit/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Machine:edit }
+
+machine_delete:
+    pattern:  /machine/delete/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Machine:delete }
+
+machine_update:
+    pattern:  /machine/update/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Machine:update }
+
+machine_create:
+    pattern:  /machine/create
+    defaults: { _controller: BatnaArchiSiebelBundle:Machine:create }
+
+machine_new:
+    pattern:  /machine/add
+    defaults: { _controller: BatnaArchiSiebelBundle:Machine:new }
+
+gateway:
+    pattern:  /gtw
+    defaults: { _controller: BatnaArchiSiebelBundle:Gateway:index }
+
+gateway_show:
+    pattern:  /gtw/show/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Gateway:show }
+
+gateway_edit:
+    pattern:  /gtw/edit/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Gateway:edit }
+
+gateway_delete:
+    pattern:  /gtw/delete/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Gateway:delete }
+
+gateway_update:
+    pattern:  /gtw/update/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:Gateway:update }
+
+gateway_create:
+    pattern:  /gtw/create
+    defaults: { _controller: BatnaArchiSiebelBundle:Gateway:create }
+
+gateway_new:
+    pattern:  /gtw/add
+    defaults: { _controller: BatnaArchiSiebelBundle:Gateway:new }
+
+enterpriseserver:
+    pattern:  /es
+    defaults: { _controller: BatnaArchiSiebelBundle:EnterpriseServer:index }
+
+enterpriseserver_show:
+    pattern:  /es/show/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:EnterpriseServer:show }
+
+enterpriseserver_edit:
+    pattern:  /es/edit/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:EnterpriseServer:edit }
+
+enterpriseserver_delete:
+    pattern:  /es/delete/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:EnterpriseServer:delete }
+
+enterpriseserver_update:
+    pattern:  /es/update/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:EnterpriseServer:update }
+
+enterpriseserver_create:
+    pattern:  /es/create
+    defaults: { _controller: BatnaArchiSiebelBundle:EnterpriseServer:create }
+
+enterpriseserver_new:
+    pattern:  /es/add
+    defaults: { _controller: BatnaArchiSiebelBundle:EnterpriseServer:new }
+
+siebelserver:
+    pattern:  /ss
+    defaults: { _controller: BatnaArchiSiebelBundle:SiebelServer:index }
+
+siebelserver_show:
+    pattern:  /ss/show/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:SiebelServer:show }
+
+siebelserver_edit:
+    pattern:  /ss/edit/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:SiebelServer:edit }
+
+siebelserver_delete:
+    pattern:  /ss/delete/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:SiebelServer:delete }
+
+siebelserver_update:
+    pattern:  /ss/update/{id}
+    defaults: { _controller: BatnaArchiSiebelBundle:SiebelServer:update }
+
+siebelserver_create:
+    pattern:  /ss/create
+    defaults: { _controller: BatnaArchiSiebelBundle:SiebelServer:create }
+
+siebelserver_new:
+    pattern:  /ss/add
+    defaults: { _controller: BatnaArchiSiebelBundle:SiebelServer:new }

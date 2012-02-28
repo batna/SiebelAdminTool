@@ -1,0 +1,37 @@
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+
+{% block title %}Caractéristiques d'une gateway - {{ parent() }}{% endblock %}
+{% block batnaarchi_body %}
+
+
+<div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+                <span class="mws-i-24 i-clipboard-1">Gateway {{ entity.nom }}</span>
+        </div>
+        <div class="mws-panel-toolbar top clearfix">
+                <ul>
+                        <li><a href="{{ path('gateway_new') }}" class="mws-ic-16 ic-page">Nouvelle gateway</a></li>
+                        <li><a href="{{ path('gateway_edit', { 'id': entity.id }) }}" class="mws-ic-16 ic-edit">Modifier</a></li>
+                        <li><a href="{{ path('gateway_delete', { 'id': entity.id }) }}" class="mws-ic-16 ic-cross">Supprimer</a></li>
+                        <li><a href="{{ path('gateway') }}" class="mws-ic-16 ic-application-view-list">Voir la liste</a></li>
+                </ul>
+        </div>
+   
+    <div class="mws-panel-body" style="padding:10px">
+
+
+<table class="mws-table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ entity.nom }}</td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+</div>
+{% endblock %}

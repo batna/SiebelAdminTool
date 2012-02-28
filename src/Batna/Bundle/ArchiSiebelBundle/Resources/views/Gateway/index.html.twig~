@@ -1,0 +1,49 @@
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+
+{% block title %}Liste des gateway - {{ parent() }}{% endblock %}
+{% block batnaarchi_body %}
+
+{{ parent() }}
+
+<div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+                <span class="mws-i-24 i-table-1">Liste des gateway</span>
+                </div>
+                        <div class="mws-panel-body">
+                        <div class="mws-panel-toolbar top clearfix">
+                                <ul>
+                                        <li>
+                                                <a href="{{ path('gateway_new') }}" class="mws-ic-16 ic-page">Nouvelle gateway</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <table class="mws-datatable-fn mws-table">
+                            <thead>
+                                <tr>
+
+            <th>Actions</th>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td class="">
+                <a href="{{ path('gateway_show', { 'id': entity.id }) }}" border="0" style="width:20px;float:left;text-decoration:none"><div class="mws-ic-16 ic-view" title="Voir">&nbsp;</div></a>
+                <a href="{{ path('gateway_edit', { 'id': entity.id }) }}" border="0" style="width:20px;float:left;text-decoration:none"><div class="mws-ic-16 ic-edit" title="Modifier">&nbsp;</div></a>
+                <a href="{{ path('gateway_delete', { 'id': entity.id }) }}" border="0" style="width:20px;float:left;text-decoration:none"><div class="mws-ic-16 ic-cross" title="Supprimer">&nbsp;</div></a>
+            </td>
+            <td>{{ entity.nom }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('gateway_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+{% endblock %}
