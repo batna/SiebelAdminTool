@@ -1,0 +1,53 @@
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+{% block title %}{{ parent() }}Liste des machines{% endblock %}
+{% block batnaarchi_body %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-table-1">Détail de la machine {{ entity.hostname }}</span>
+    </div>
+    <div class="mws-panel-body">
+    	<div class="mws-panel-toolbar top clearfix">
+        	<ul>
+            	<li><a href="{{ path('host_new') }}" class="mws-ic-16 ic-page">Nouveau</a></li>
+            	<li><a href="{{ path('host_edit', { 'id': entity.id }) }}" class="mws-ic-16 ic-edit">Modifier</a></li>
+            	<li><a href="{{ path('host_delete', { 'id': entity.id }) }}" class="mws-ic-16 ic-cross">Supprimer</a></li>
+            	<li><a href="{{ path('host') }}" class="mws-ic-16 ic-application-view-list">Voir la liste</a></li>
+            </ul>
+        </div>
+        <div style="margin:10px">
+            <table class="mws-table">
+                <tbody>
+                    <tr>
+                        <th>Hostname</th>
+                        <td>{{ entity.hostname }}</td>
+                    </tr>
+                    <tr>
+                        <th>IP</th>
+                        <td>{{ entity.ip }}</td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{ entity.type }}</td>
+                    </tr>
+                    <tr>
+                        <th>OS</th>
+                        <td>{{ entity.os }}</td>
+                    </tr>
+                    <tr>
+                        <th>RAM</th>
+                        <td>{{ entity.ram }}</td>
+                    </tr>
+                    <tr>
+                        <th>CPU</th>
+                        <td>{{ entity.cpuCore }} coeur ({{ entity.cpuFrequency }} GHz)</td>
+                    </tr>
+                    <tr>
+                        <th>Parent</th>
+                        <td>{{ entity.parent }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

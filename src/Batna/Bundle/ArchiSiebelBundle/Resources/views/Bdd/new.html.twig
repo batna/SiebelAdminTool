@@ -1,0 +1,28 @@
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} - Création d'une base de données{% endblock %}
+{% block batnaarchi_body %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-table-1">Création d'une base de données</span>
+    </div>
+    <div class="mws-panel-body">
+    	<div class="mws-panel-toolbar top clearfix">
+        	<ul>
+            	<li><a href="{{ path('bdd') }}" class="mws-ic-16 ic-application-view-list">Voir la liste</a></li>
+            </ul>
+        </div>
+        <div style="margin:10px">
+            <form class="mws-form" action="{{ path('bdd_create') }}" method="post" {{ form_enctype(form) }}>
+                <div class="mws-form-row">
+                {{ form_widget(form) }}
+                </div>
+                <div class="mws-button-row">
+                	
+                	<input type="reset" value="Annuler" class="mws-button red small" />
+                	<input type="submit" value="Créer" class="mws-button black small" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

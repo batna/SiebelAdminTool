@@ -22,19 +22,49 @@ class Gateway
     private $id;
 
     /**
-     * @var string $nom
+     * @var integer $port
      *
-     * @ORM\Column(name="nom", type="string", length=32)
+     * @ORM\Column(name="port", type="integer")
      */
-    private $nom;
+    private $port;
 
     /**
-     * @var integer $machine
+     * @var text $description
      *
-     * @ORM\ManyToOne(targetEntity="Machine")
+     * @ORM\Column(name="description", type="text")
      */
-    private $machine;
+    private $description;
 
+    /**
+     * @var integer $host
+     *
+     * @ORM\ManyToOne(targetEntity="Batna\Bundle\ArchiSiebelBundle\Entity\Host")
+     */
+    private $host;
+
+    /**
+     * @var integer $environnement
+     *
+     * @ORM\ManyToOne(targetEntity="Batna\Bundle\ArchiSiebelBundle\Entity\Environnement")
+     */
+    private $environnement;
+
+    /**
+     * @var integer $bdd
+     *
+     * @ORM\ManyToOne(targetEntity="Batna\Bundle\ArchiSiebelBundle\Entity\Bdd")
+     */
+    private $bdd;
+
+    /**
+     * To String
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return $this->description;
+    }
 
     /**
      * Get id
@@ -47,52 +77,102 @@ class Gateway
     }
 
     /**
-     * Set nom
+     * Set port
      *
-     * @param string $nom
+     * @param integer $port
      */
-    public function setNom($nom)
+    public function setPort($port)
     {
-        $this->nom = $nom;
+        $this->port = $port;
     }
 
     /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-    
-    /**
-     * To String
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set machine
-     *
-     * @param integer $machine
-     */
-    public function setMachine($machine)
-    {
-        $this->machine = $machine;
-    }
-
-    /**
-     * Get machine
+     * Get port
      *
      * @return integer 
      */
-    public function getMachine()
+    public function getPort()
     {
-        return $this->machine;
+        return $this->port;
+    }
+
+    /**
+     * Set description
+     *
+     * @param text $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Get description
+     *
+     * @return text 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set host
+     *
+     * @param integer $host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+    }
+
+    /**
+     * Get host
+     *
+     * @return integer 
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * Set environnement
+     *
+     * @param integer $environnement
+     */
+    public function setEnvironnement($environnement)
+    {
+        $this->environnement = $environnement;
+    }
+
+    /**
+     * Get environnement
+     *
+     * @return integer 
+     */
+    public function getEnvironnement()
+    {
+        return $this->environnement;
+    }
+
+    /**
+     * Set bdd
+     *
+     * @param integer $bdd
+     */
+    public function setBdd($bdd)
+    {
+        $this->bdd = $bdd;
+    }
+
+    /**
+     * Get bdd
+     *
+     * @return integer 
+     */
+    public function getBdd()
+    {
+        return $this->bdd;
     }
 }

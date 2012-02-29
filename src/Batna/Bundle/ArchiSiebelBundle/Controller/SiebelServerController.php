@@ -3,24 +3,19 @@
 namespace Batna\Bundle\ArchiSiebelBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use Batna\Bundle\ArchiSiebelBundle\Entity\SiebelServer;
 use Batna\Bundle\ArchiSiebelBundle\Form\SiebelServerType;
 
 /**
  * SiebelServer controller.
  *
- * @Route("/siebelserver")
  */
 class SiebelServerController extends Controller
 {
     /**
      * Lists all SiebelServer entities.
      *
-     * @Route("/", name="siebelserver")
-     * @Template()
      */
     public function indexAction()
     {
@@ -28,14 +23,14 @@ class SiebelServerController extends Controller
 
         $entities = $em->getRepository('BatnaArchiSiebelBundle:SiebelServer')->findAll();
 
-        return array('entities' => $entities);
+        return $this->render('BatnaArchiSiebelBundle:SiebelServer:index.html.twig', array(
+            'entities' => $entities
+        ));
     }
 
     /**
      * Finds and displays a SiebelServer entity.
      *
-     * @Route("/{id}/show", name="siebelserver_show")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -49,34 +44,31 @@ class SiebelServerController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:SiebelServer:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'delete_form' => $deleteForm->createView(),
+
+        ));
     }
 
     /**
      * Displays a form to create a new SiebelServer entity.
      *
-     * @Route("/new", name="siebelserver_new")
-     * @Template()
      */
     public function newAction()
     {
         $entity = new SiebelServer();
         $form   = $this->createForm(new SiebelServerType(), $entity);
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:SiebelServer:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
      * Creates a new SiebelServer entity.
      *
-     * @Route("/create", name="siebelserver_create")
-     * @Method("post")
-     * @Template("BatnaArchiSiebelBundle:SiebelServer:new.html.twig")
      */
     public function createAction()
     {
@@ -90,21 +82,19 @@ class SiebelServerController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('siebelserver_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('ss_show', array('id' => $entity->getId())));
             
         }
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:SiebelServer:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
      * Displays a form to edit an existing SiebelServer entity.
      *
-     * @Route("/{id}/edit", name="siebelserver_edit")
-     * @Template()
      */
     public function editAction($id)
     {
@@ -119,19 +109,16 @@ class SiebelServerController extends Controller
         $editForm = $this->createForm(new SiebelServerType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:SiebelServer:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Edits an existing SiebelServer entity.
      *
-     * @Route("/{id}/update", name="siebelserver_update")
-     * @Method("post")
-     * @Template("BatnaArchiSiebelBundle:SiebelServer:edit.html.twig")
      */
     public function updateAction($id)
     {
@@ -154,21 +141,19 @@ class SiebelServerController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('siebelserver_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('ss_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:SiebelServer:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Deletes a SiebelServer entity.
      *
-     * @Route("/{id}/delete", name="siebelserver_delete")
-     * @Method("post")
      */
     public function deleteAction($id)
     {
@@ -189,7 +174,7 @@ class SiebelServerController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('siebelserver'));
+        return $this->redirect($this->generateUrl('ss'));
     }
 
     private function createDeleteForm($id)

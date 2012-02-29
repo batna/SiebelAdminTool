@@ -1,0 +1,30 @@
+bdd:
+    pattern:  /
+    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:index" }
+
+bdd_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:show" }
+
+bdd_new:
+    pattern:  /new
+    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:new" }
+
+bdd_create:
+    pattern:  /create
+    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:create" }
+    requirements: { _method: post }
+
+bdd_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:edit" }
+
+bdd_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:update" }
+    requirements: { _method: post }
+
+bdd_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:delete" }
+    requirements: { _method: post }

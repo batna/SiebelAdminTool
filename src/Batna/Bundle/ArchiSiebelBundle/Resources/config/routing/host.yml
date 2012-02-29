@@ -1,0 +1,30 @@
+host:
+    pattern:  /
+    defaults: { _controller: "BatnaArchiSiebelBundle:Host:index" }
+
+host_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BatnaArchiSiebelBundle:Host:show" }
+
+host_new:
+    pattern:  /new
+    defaults: { _controller: "BatnaArchiSiebelBundle:Host:new" }
+
+host_create:
+    pattern:  /create
+    defaults: { _controller: "BatnaArchiSiebelBundle:Host:create" }
+    requirements: { _method: post }
+
+host_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BatnaArchiSiebelBundle:Host:edit" }
+
+host_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BatnaArchiSiebelBundle:Host:update" }
+    requirements: { _method: post }
+
+host_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BatnaArchiSiebelBundle:Host:delete" }
+    requirements: { _method: post }

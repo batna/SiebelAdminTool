@@ -85,145 +85,373 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/siebel')) {
-            // machine
-            if ($pathinfo === '/siebel/machine') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::indexAction',  '_route' => 'machine',);
+            // bdd
+            if ($pathinfo === '/siebel/bdd') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::indexAction',  '_route' => 'bdd',);
             }
 
-            // machine_show
-            if (0 === strpos($pathinfo, '/siebel/machine/show') && preg_match('#^/siebel/machine/show/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::showAction',)), array('_route' => 'machine_show'));
+            // bdd_show
+            if (0 === strpos($pathinfo, '/siebel/bdd') && preg_match('#^/siebel/bdd/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::showAction',)), array('_route' => 'bdd_show'));
             }
 
-            // machine_edit
-            if (0 === strpos($pathinfo, '/siebel/machine/edit') && preg_match('#^/siebel/machine/edit/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::editAction',)), array('_route' => 'machine_edit'));
+            // bdd_new
+            if ($pathinfo === '/siebel/bdd/new') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::newAction',  '_route' => 'bdd_new',);
             }
 
-            // machine_delete
-            if (0 === strpos($pathinfo, '/siebel/machine/delete') && preg_match('#^/siebel/machine/delete/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::deleteAction',)), array('_route' => 'machine_delete'));
+            // bdd_create
+            if ($pathinfo === '/siebel/bdd/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_bdd_create;
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::createAction',  '_route' => 'bdd_create',);
+            }
+            not_bdd_create:
+
+            // bdd_edit
+            if (0 === strpos($pathinfo, '/siebel/bdd') && preg_match('#^/siebel/bdd/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::editAction',)), array('_route' => 'bdd_edit'));
             }
 
-            // machine_update
-            if (0 === strpos($pathinfo, '/siebel/machine/update') && preg_match('#^/siebel/machine/update/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::updateAction',)), array('_route' => 'machine_update'));
+            // bdd_update
+            if (0 === strpos($pathinfo, '/siebel/bdd') && preg_match('#^/siebel/bdd/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_bdd_update;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::updateAction',)), array('_route' => 'bdd_update'));
+            }
+            not_bdd_update:
+
+            // bdd_delete
+            if (0 === strpos($pathinfo, '/siebel/bdd') && preg_match('#^/siebel/bdd/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_bdd_delete;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::deleteAction',)), array('_route' => 'bdd_delete'));
+            }
+            not_bdd_delete:
+
+            // contexte
+            if (rtrim($pathinfo, '/') === '/siebel/contxt') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'contexte');
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::indexAction',  '_route' => 'contexte',);
             }
 
-            // machine_create
-            if ($pathinfo === '/siebel/machine/create') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::createAction',  '_route' => 'machine_create',);
+            // contexte_show
+            if (0 === strpos($pathinfo, '/siebel/contxt') && preg_match('#^/siebel/contxt/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::showAction',)), array('_route' => 'contexte_show'));
             }
 
-            // machine_new
-            if ($pathinfo === '/siebel/machine/add') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::newAction',  '_route' => 'machine_new',);
+            // contexte_new
+            if ($pathinfo === '/siebel/contxt/new') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::newAction',  '_route' => 'contexte_new',);
             }
 
-            // gateway
-            if ($pathinfo === '/siebel/gtw') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::indexAction',  '_route' => 'gateway',);
+            // contexte_create
+            if ($pathinfo === '/siebel/contxt/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_contexte_create;
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::createAction',  '_route' => 'contexte_create',);
+            }
+            not_contexte_create:
+
+            // contexte_edit
+            if (0 === strpos($pathinfo, '/siebel/contxt') && preg_match('#^/siebel/contxt/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::editAction',)), array('_route' => 'contexte_edit'));
             }
 
-            // gateway_show
-            if (0 === strpos($pathinfo, '/siebel/gtw/show') && preg_match('#^/siebel/gtw/show/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::showAction',)), array('_route' => 'gateway_show'));
+            // contexte_update
+            if (0 === strpos($pathinfo, '/siebel/contxt') && preg_match('#^/siebel/contxt/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_contexte_update;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::updateAction',)), array('_route' => 'contexte_update'));
+            }
+            not_contexte_update:
+
+            // contexte_delete
+            if (0 === strpos($pathinfo, '/siebel/contxt') && preg_match('#^/siebel/contxt/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_contexte_delete;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::deleteAction',)), array('_route' => 'contexte_delete'));
+            }
+            not_contexte_delete:
+
+            // es
+            if (rtrim($pathinfo, '/') === '/siebel/es') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'es');
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::indexAction',  '_route' => 'es',);
             }
 
-            // gateway_edit
-            if (0 === strpos($pathinfo, '/siebel/gtw/edit') && preg_match('#^/siebel/gtw/edit/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::editAction',)), array('_route' => 'gateway_edit'));
+            // es_show
+            if (0 === strpos($pathinfo, '/siebel/es') && preg_match('#^/siebel/es/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::showAction',)), array('_route' => 'es_show'));
             }
 
-            // gateway_delete
-            if (0 === strpos($pathinfo, '/siebel/gtw/delete') && preg_match('#^/siebel/gtw/delete/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::deleteAction',)), array('_route' => 'gateway_delete'));
+            // es_new
+            if ($pathinfo === '/siebel/es/new') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::newAction',  '_route' => 'es_new',);
             }
 
-            // gateway_update
-            if (0 === strpos($pathinfo, '/siebel/gtw/update') && preg_match('#^/siebel/gtw/update/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::updateAction',)), array('_route' => 'gateway_update'));
-            }
-
-            // gateway_create
-            if ($pathinfo === '/siebel/gtw/create') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::createAction',  '_route' => 'gateway_create',);
-            }
-
-            // gateway_new
-            if ($pathinfo === '/siebel/gtw/add') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::newAction',  '_route' => 'gateway_new',);
-            }
-
-            // enterpriseserver
-            if ($pathinfo === '/siebel/es') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::indexAction',  '_route' => 'enterpriseserver',);
-            }
-
-            // enterpriseserver_show
-            if (0 === strpos($pathinfo, '/siebel/es/show') && preg_match('#^/siebel/es/show/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::showAction',)), array('_route' => 'enterpriseserver_show'));
-            }
-
-            // enterpriseserver_edit
-            if (0 === strpos($pathinfo, '/siebel/es/edit') && preg_match('#^/siebel/es/edit/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::editAction',)), array('_route' => 'enterpriseserver_edit'));
-            }
-
-            // enterpriseserver_delete
-            if (0 === strpos($pathinfo, '/siebel/es/delete') && preg_match('#^/siebel/es/delete/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::deleteAction',)), array('_route' => 'enterpriseserver_delete'));
-            }
-
-            // enterpriseserver_update
-            if (0 === strpos($pathinfo, '/siebel/es/update') && preg_match('#^/siebel/es/update/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::updateAction',)), array('_route' => 'enterpriseserver_update'));
-            }
-
-            // enterpriseserver_create
+            // es_create
             if ($pathinfo === '/siebel/es/create') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::createAction',  '_route' => 'enterpriseserver_create',);
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_es_create;
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::createAction',  '_route' => 'es_create',);
+            }
+            not_es_create:
+
+            // es_edit
+            if (0 === strpos($pathinfo, '/siebel/es') && preg_match('#^/siebel/es/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::editAction',)), array('_route' => 'es_edit'));
             }
 
-            // enterpriseserver_new
-            if ($pathinfo === '/siebel/es/add') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::newAction',  '_route' => 'enterpriseserver_new',);
+            // es_update
+            if (0 === strpos($pathinfo, '/siebel/es') && preg_match('#^/siebel/es/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_es_update;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::updateAction',)), array('_route' => 'es_update'));
+            }
+            not_es_update:
+
+            // es_delete
+            if (0 === strpos($pathinfo, '/siebel/es') && preg_match('#^/siebel/es/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_es_delete;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::deleteAction',)), array('_route' => 'es_delete'));
+            }
+            not_es_delete:
+
+            // env
+            if (rtrim($pathinfo, '/') === '/siebel/env') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'env');
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::indexAction',  '_route' => 'env',);
             }
 
-            // siebelserver
-            if ($pathinfo === '/siebel/ss') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::indexAction',  '_route' => 'siebelserver',);
+            // env_show
+            if (0 === strpos($pathinfo, '/siebel/env') && preg_match('#^/siebel/env/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::showAction',)), array('_route' => 'env_show'));
             }
 
-            // siebelserver_show
-            if (0 === strpos($pathinfo, '/siebel/ss/show') && preg_match('#^/siebel/ss/show/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::showAction',)), array('_route' => 'siebelserver_show'));
+            // env_new
+            if ($pathinfo === '/siebel/env/new') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::newAction',  '_route' => 'env_new',);
             }
 
-            // siebelserver_edit
-            if (0 === strpos($pathinfo, '/siebel/ss/edit') && preg_match('#^/siebel/ss/edit/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::editAction',)), array('_route' => 'siebelserver_edit'));
+            // env_create
+            if ($pathinfo === '/siebel/env/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_env_create;
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::createAction',  '_route' => 'env_create',);
+            }
+            not_env_create:
+
+            // env_edit
+            if (0 === strpos($pathinfo, '/siebel/env') && preg_match('#^/siebel/env/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::editAction',)), array('_route' => 'env_edit'));
             }
 
-            // siebelserver_delete
-            if (0 === strpos($pathinfo, '/siebel/ss/delete') && preg_match('#^/siebel/ss/delete/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::deleteAction',)), array('_route' => 'siebelserver_delete'));
+            // env_update
+            if (0 === strpos($pathinfo, '/siebel/env') && preg_match('#^/siebel/env/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_env_update;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::updateAction',)), array('_route' => 'env_update'));
+            }
+            not_env_update:
+
+            // env_delete
+            if (0 === strpos($pathinfo, '/siebel/env') && preg_match('#^/siebel/env/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_env_delete;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::deleteAction',)), array('_route' => 'env_delete'));
+            }
+            not_env_delete:
+
+            // gtw
+            if (rtrim($pathinfo, '/') === '/siebel/gtw') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'gtw');
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::indexAction',  '_route' => 'gtw',);
             }
 
-            // siebelserver_update
-            if (0 === strpos($pathinfo, '/siebel/ss/update') && preg_match('#^/siebel/ss/update/(?P<id>[^/]+?)$#xs', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::updateAction',)), array('_route' => 'siebelserver_update'));
+            // gtw_show
+            if (0 === strpos($pathinfo, '/siebel/gtw') && preg_match('#^/siebel/gtw/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::showAction',)), array('_route' => 'gtw_show'));
             }
 
-            // siebelserver_create
+            // gtw_new
+            if ($pathinfo === '/siebel/gtw/new') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::newAction',  '_route' => 'gtw_new',);
+            }
+
+            // gtw_create
+            if ($pathinfo === '/siebel/gtw/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_gtw_create;
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::createAction',  '_route' => 'gtw_create',);
+            }
+            not_gtw_create:
+
+            // gtw_edit
+            if (0 === strpos($pathinfo, '/siebel/gtw') && preg_match('#^/siebel/gtw/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::editAction',)), array('_route' => 'gtw_edit'));
+            }
+
+            // gtw_update
+            if (0 === strpos($pathinfo, '/siebel/gtw') && preg_match('#^/siebel/gtw/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_gtw_update;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::updateAction',)), array('_route' => 'gtw_update'));
+            }
+            not_gtw_update:
+
+            // gtw_delete
+            if (0 === strpos($pathinfo, '/siebel/gtw') && preg_match('#^/siebel/gtw/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_gtw_delete;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::deleteAction',)), array('_route' => 'gtw_delete'));
+            }
+            not_gtw_delete:
+
+            // host
+            if (rtrim($pathinfo, '/') === '/siebel/host') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'host');
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::indexAction',  '_route' => 'host',);
+            }
+
+            // host_show
+            if (0 === strpos($pathinfo, '/siebel/host') && preg_match('#^/siebel/host/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::showAction',)), array('_route' => 'host_show'));
+            }
+
+            // host_new
+            if ($pathinfo === '/siebel/host/new') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::newAction',  '_route' => 'host_new',);
+            }
+
+            // host_create
+            if ($pathinfo === '/siebel/host/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_host_create;
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::createAction',  '_route' => 'host_create',);
+            }
+            not_host_create:
+
+            // host_edit
+            if (0 === strpos($pathinfo, '/siebel/host') && preg_match('#^/siebel/host/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::editAction',)), array('_route' => 'host_edit'));
+            }
+
+            // host_update
+            if (0 === strpos($pathinfo, '/siebel/host') && preg_match('#^/siebel/host/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_host_update;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::updateAction',)), array('_route' => 'host_update'));
+            }
+            not_host_update:
+
+            // host_delete
+            if (0 === strpos($pathinfo, '/siebel/host') && preg_match('#^/siebel/host/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_host_delete;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::deleteAction',)), array('_route' => 'host_delete'));
+            }
+            not_host_delete:
+
+            // ss
+            if (rtrim($pathinfo, '/') === '/siebel/ss') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ss');
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::indexAction',  '_route' => 'ss',);
+            }
+
+            // ss_show
+            if (0 === strpos($pathinfo, '/siebel/ss') && preg_match('#^/siebel/ss/(?P<id>[^/]+?)/show$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::showAction',)), array('_route' => 'ss_show'));
+            }
+
+            // ss_new
+            if ($pathinfo === '/siebel/ss/new') {
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::newAction',  '_route' => 'ss_new',);
+            }
+
+            // ss_create
             if ($pathinfo === '/siebel/ss/create') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::createAction',  '_route' => 'siebelserver_create',);
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_ss_create;
+                }
+                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::createAction',  '_route' => 'ss_create',);
+            }
+            not_ss_create:
+
+            // ss_edit
+            if (0 === strpos($pathinfo, '/siebel/ss') && preg_match('#^/siebel/ss/(?P<id>[^/]+?)/edit$#xs', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::editAction',)), array('_route' => 'ss_edit'));
             }
 
-            // siebelserver_new
-            if ($pathinfo === '/siebel/ss/add') {
-                return array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::newAction',  '_route' => 'siebelserver_new',);
+            // ss_update
+            if (0 === strpos($pathinfo, '/siebel/ss') && preg_match('#^/siebel/ss/(?P<id>[^/]+?)/update$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_ss_update;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::updateAction',)), array('_route' => 'ss_update'));
             }
+            not_ss_update:
+
+            // ss_delete
+            if (0 === strpos($pathinfo, '/siebel/ss') && preg_match('#^/siebel/ss/(?P<id>[^/]+?)/delete$#xs', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_ss_delete;
+                }
+                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::deleteAction',)), array('_route' => 'ss_delete'));
+            }
+            not_ss_delete:
 
         }
 

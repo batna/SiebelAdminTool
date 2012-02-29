@@ -42,8 +42,8 @@ class __TwigTemplate_2bcff1da603cfc56d34a7e00f958326a extends Twig_Template
         <div id=\"mws-logo-wrap\">
             <img src=\"";
         // line 19
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/mws-logo.png"), "html", null, true);
-        echo "\" alt=\"mws admin\" />
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/batna.png"), "html", null, true);
+        echo "\" alt=\"Batna\" style=\"width:40px\" /><span style=\"font-size:1.5em;color:grey;\">Batna</spen>
          </div>
      </div>
  
@@ -61,7 +61,7 @@ class __TwigTemplate_2bcff1da603cfc56d34a7e00f958326a extends Twig_Template
                         <!-- Here Goes all the notifications -->
                      </ul>
                      <div class=\"mws-dropdown-viewall\">
-                        <a href=\"#\">View All Notifications</a>
+                        <a href=\"#\">Voir toutes les notifications</a>
                      </div>
                  </div>
              </div>
@@ -77,7 +77,7 @@ class __TwigTemplate_2bcff1da603cfc56d34a7e00f958326a extends Twig_Template
                          <!-- Here goes all the messages -->
                       </ul>
                      <div class=\"mws-dropdown-viewall\">
-                         <a href=\"#\">View All Messages</a>
+                         <a href=\"#\">Voir tous les messages</a>
                      </div>
                  </div>
              </div>
@@ -126,23 +126,59 @@ class __TwigTemplate_2bcff1da603cfc56d34a7e00f958326a extends Twig_Template
         <!-- Main Navigation -->
         <div id=\"mws-navigation\">
             <ul>
-                  <li><a href=\"";
-        // line 102
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("machine"), "html", null, true);
-        echo "\" class=\"mws-i-24 i-joomla\">Machines</a></li>
-                  <li><a href=\"";
-        // line 103
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gateway"), "html", null, true);
-        echo "\" class=\"mws-i-24 i-plixi\">Gateway</a></li>
-                  <li><a href=\"";
-        // line 104
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("enterpriseserver"), "html", null, true);
-        echo "\" class=\"mws-i-24 i-globe\">Enterprise</a></li>
-                  <li><a href=\"";
+                <li>
+                    <a href=\"#\" class=\"mws-i-24 i-abacus\">Référentiel</a>
+                    <ul>
+                        <li><a href=\"";
         // line 105
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("siebelserver"), "html", null, true);
-        echo "\" class=\"mws-i-24 i-abacus\">Server</a></li>
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("host"), "html", null, true);
+        echo "\">Machines</a></li>
+                        <li><a href=\"";
+        // line 106
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("gtw"), "html", null, true);
+        echo "\">Gateway</a></li>
+                        <li><a href=\"";
+        // line 107
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("es"), "html", null, true);
+        echo "\">Enterprise</a></li>
+                        <li><a href=\"";
+        // line 108
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ss"), "html", null, true);
+        echo "\">Server</a></li>
+                        <li><a href=\"";
+        // line 109
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("bdd"), "html", null, true);
+        echo "\">Base de données</a></li>
+                        <li><a href=\"";
+        // line 110
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("contexte"), "html", null, true);
+        echo "\">Contexte</a></li>
+                        <li><a href=\"";
+        // line 111
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("env"), "html", null, true);
+        echo "\">Environnement</a></li>  
+                    </ul>
+                </li>
+                <li>
+                    <a href=\"#\" class=\"mws-i-24 i-graph\">Monitoring</a>
+                    <ul>
+                        <li><a href=\"#\">Espaces disque</a></li>
+                        <li><a href=\"#\">Volumes des bases</a></li>
+                        <li><a href=\"#\">Utilisateurs déclarés</a></li>
+                        <li><a href=\"#\">Utilisateurs connecté</a></li>
+                        <li><a href=\"#\">Crash</a></li>
+                        <li><a href=\"#\">Event Viewer</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href=\"#\" class=\"mws-i-24 i-lock-locked\">Administration</a>
+                    <ul>
+                        <li><a href=\"#\">Auto discovery</a></li>
+                        <li><a href=\"#\">Gestion des accès</a></li>
+                    </ul>
+                </li>
             </ul>
+        
         </div>
         <!-- End Navigation -->
  
@@ -154,9 +190,9 @@ class __TwigTemplate_2bcff1da603cfc56d34a7e00f958326a extends Twig_Template
         <!-- Main Container -->
         <div class=\"container\">
         ";
-        // line 117
+        // line 144
         $this->displayBlock('batnaarchi_body', $context, $blocks);
-        // line 118
+        // line 145
         echo "        </div>
         <!-- End Main Container -->
          
@@ -181,7 +217,7 @@ class __TwigTemplate_2bcff1da603cfc56d34a7e00f958326a extends Twig_Template
         echo "BatnaTools";
     }
 
-    // line 117
+    // line 144
     public function block_batnaarchi_body($context, array $blocks = array())
     {
     }

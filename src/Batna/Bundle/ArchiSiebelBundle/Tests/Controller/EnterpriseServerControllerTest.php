@@ -13,7 +13,7 @@ class EnterpriseServerControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/enterpriseserver/');
+        $crawler = $client->request('GET', '/es/');
         $this->assertTrue(200 === $client->getResponse()->getStatusCode());
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 

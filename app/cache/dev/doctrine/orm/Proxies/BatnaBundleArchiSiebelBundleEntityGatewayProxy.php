@@ -36,46 +36,82 @@ class BatnaBundleArchiSiebelBundleEntityGatewayProxy extends \Batna\Bundle\Archi
     }
     
     
-    public function getId()
-    {
-        $this->__load();
-        return parent::getId();
-    }
-
-    public function setNom($nom)
-    {
-        $this->__load();
-        return parent::setNom($nom);
-    }
-
-    public function getNom()
-    {
-        $this->__load();
-        return parent::getNom();
-    }
-
     public function __toString()
     {
         $this->__load();
         return parent::__toString();
     }
 
-    public function setMachine($machine)
+    public function getId()
     {
         $this->__load();
-        return parent::setMachine($machine);
+        return parent::getId();
     }
 
-    public function getMachine()
+    public function setPort($port)
     {
         $this->__load();
-        return parent::getMachine();
+        return parent::setPort($port);
+    }
+
+    public function getPort()
+    {
+        $this->__load();
+        return parent::getPort();
+    }
+
+    public function setDescription($description)
+    {
+        $this->__load();
+        return parent::setDescription($description);
+    }
+
+    public function getDescription()
+    {
+        $this->__load();
+        return parent::getDescription();
+    }
+
+    public function setHost($host)
+    {
+        $this->__load();
+        return parent::setHost($host);
+    }
+
+    public function getHost()
+    {
+        $this->__load();
+        return parent::getHost();
+    }
+
+    public function setEnvironnement($environnement)
+    {
+        $this->__load();
+        return parent::setEnvironnement($environnement);
+    }
+
+    public function getEnvironnement()
+    {
+        $this->__load();
+        return parent::getEnvironnement();
+    }
+
+    public function setBdd($bdd)
+    {
+        $this->__load();
+        return parent::setBdd($bdd);
+    }
+
+    public function getBdd()
+    {
+        $this->__load();
+        return parent::getBdd();
     }
 
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'nom', 'machine');
+        return array('__isInitialized__', 'id', 'port', 'description', 'host', 'environnement', 'bdd');
     }
 
     public function __clone()

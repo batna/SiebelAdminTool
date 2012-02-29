@@ -22,33 +22,36 @@ class EnterpriseServer
     private $id;
 
     /**
-     * @var string $nom
+     * @var string $logicalName
      *
-     * @ORM\Column(name="nom", type="string", length=32)
+     * @ORM\Column(name="logicalName", type="string", length=255)
      */
-    private $nom;
+    private $logicalName;
 
     /**
-     * @var string $description
+     * @var text $description
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
      * @var integer $gateway
      *
-     * @ORM\ManyToOne(targetEntity="Gateway")
+     * @ORM\ManyToOne(targetEntity="Batna\Bundle\ArchiSiebelBundle\Entity\Gateway")
      */
     private $gateway;
 
-    /**
-     * @var integer $machine
-     *
-     * @ORM\ManyToOne(targetEntity="Machine")
-     */
-    private $machine;
 
+    /**
+     * To String
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return $this->logicalName;
+    }
 
     /**
      * Get id
@@ -61,39 +64,29 @@ class EnterpriseServer
     }
 
     /**
-     * Set nom
+     * Set logicalName
      *
-     * @param string $nom
+     * @param string $logicalName
      */
-    public function setNom($nom)
+    public function setLogicalName($logicalName)
     {
-        $this->nom = $nom;
+        $this->logicalName = $logicalName;
     }
 
     /**
-     * Get nom
+     * Get logicalName
      *
      * @return string 
      */
-    public function getNom()
+    public function getLogicalName()
     {
-        return $this->nom;
-    }
-    
-    /**
-     * To String
-     *
-     * @return string 
-     */
-    public function __toString()
-    {
-        return $this->nom;
+        return $this->logicalName;
     }
 
     /**
      * Set description
      *
-     * @param string $description
+     * @param text $description
      */
     public function setDescription($description)
     {
@@ -103,7 +96,7 @@ class EnterpriseServer
     /**
      * Get description
      *
-     * @return string 
+     * @return text 
      */
     public function getDescription()
     {
@@ -128,25 +121,5 @@ class EnterpriseServer
     public function getGateway()
     {
         return $this->gateway;
-    }
-
-    /**
-     * Set machine
-     *
-     * @param integer $machine
-     */
-    public function setMachine($machine)
-    {
-        $this->machine = $machine;
-    }
-
-    /**
-     * Get machine
-     *
-     * @return integer 
-     */
-    public function getMachine()
-    {
-        return $this->machine;
     }
 }

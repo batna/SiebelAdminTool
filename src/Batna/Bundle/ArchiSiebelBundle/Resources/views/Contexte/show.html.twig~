@@ -1,0 +1,37 @@
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+{% block title %}{{ parent() }}Liste des machines{% endblock %}
+{% block batnaarchi_body %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-table-1">Detail du contexte {{ entity.longName }}</span>
+    </div>
+    <div class="mws-panel-body">
+    	<div class="mws-panel-toolbar top clearfix">
+        	<ul>
+            	<li><a href="{{ path('contexte_new') }}" class="mws-ic-16 ic-page">Nouveau</a></li>
+            	<li><a href="{{ path('contexte_edit', { 'id': entity.id }) }}" class="mws-ic-16 ic-edit">Modifier</a></li>
+            	<li><a href="{{ path('contexte_delete', { 'id': entity.id }) }}" class="mws-ic-16 ic-cross">Supprimer</a></li>
+            	<li><a href="{{ path('contexte') }}" class="mws-ic-16 ic-application-view-list">Voir la liste</a></li>
+            </ul>
+        </div>
+        <div style="margin:10px">
+            <table class="mws-table">
+                <tbody>
+                    <tr>
+                        <th>Nom court</th>
+                        <td>{{ entity.shortName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nom long</th>
+                        <td>{{ entity.longName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ entity.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

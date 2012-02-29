@@ -1,0 +1,30 @@
+es:
+    pattern:  /
+    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:index" }
+
+es_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:show" }
+
+es_new:
+    pattern:  /new
+    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:new" }
+
+es_create:
+    pattern:  /create
+    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:create" }
+    requirements: { _method: post }
+
+es_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:edit" }
+
+es_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:update" }
+    requirements: { _method: post }
+
+es_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:delete" }
+    requirements: { _method: post }

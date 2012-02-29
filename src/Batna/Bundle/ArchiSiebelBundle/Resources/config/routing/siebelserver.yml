@@ -1,0 +1,30 @@
+ss:
+    pattern:  /
+    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:index" }
+
+ss_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:show" }
+
+ss_new:
+    pattern:  /new
+    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:new" }
+
+ss_create:
+    pattern:  /create
+    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:create" }
+    requirements: { _method: post }
+
+ss_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:edit" }
+
+ss_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:update" }
+    requirements: { _method: post }
+
+ss_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:delete" }
+    requirements: { _method: post }

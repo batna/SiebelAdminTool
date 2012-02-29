@@ -1,0 +1,30 @@
+contexte:
+    pattern:  /
+    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:index" }
+
+contexte_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:show" }
+
+contexte_new:
+    pattern:  /new
+    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:new" }
+
+contexte_create:
+    pattern:  /create
+    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:create" }
+    requirements: { _method: post }
+
+contexte_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:edit" }
+
+contexte_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:update" }
+    requirements: { _method: post }
+
+contexte_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:delete" }
+    requirements: { _method: post }

@@ -23,34 +23,55 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        '_configurator_home' => true,
        '_configurator_step' => true,
        '_configurator_final' => true,
-       'machine' => true,
-       'machine_show' => true,
-       'machine_edit' => true,
-       'machine_delete' => true,
-       'machine_update' => true,
-       'machine_create' => true,
-       'machine_new' => true,
-       'gateway' => true,
-       'gateway_show' => true,
-       'gateway_edit' => true,
-       'gateway_delete' => true,
-       'gateway_update' => true,
-       'gateway_create' => true,
-       'gateway_new' => true,
-       'enterpriseserver' => true,
-       'enterpriseserver_show' => true,
-       'enterpriseserver_edit' => true,
-       'enterpriseserver_delete' => true,
-       'enterpriseserver_update' => true,
-       'enterpriseserver_create' => true,
-       'enterpriseserver_new' => true,
-       'siebelserver' => true,
-       'siebelserver_show' => true,
-       'siebelserver_edit' => true,
-       'siebelserver_delete' => true,
-       'siebelserver_update' => true,
-       'siebelserver_create' => true,
-       'siebelserver_new' => true,
+       'bdd' => true,
+       'bdd_show' => true,
+       'bdd_new' => true,
+       'bdd_create' => true,
+       'bdd_edit' => true,
+       'bdd_update' => true,
+       'bdd_delete' => true,
+       'contexte' => true,
+       'contexte_show' => true,
+       'contexte_new' => true,
+       'contexte_create' => true,
+       'contexte_edit' => true,
+       'contexte_update' => true,
+       'contexte_delete' => true,
+       'es' => true,
+       'es_show' => true,
+       'es_new' => true,
+       'es_create' => true,
+       'es_edit' => true,
+       'es_update' => true,
+       'es_delete' => true,
+       'env' => true,
+       'env_show' => true,
+       'env_new' => true,
+       'env_create' => true,
+       'env_edit' => true,
+       'env_update' => true,
+       'env_delete' => true,
+       'gtw' => true,
+       'gtw_show' => true,
+       'gtw_new' => true,
+       'gtw_create' => true,
+       'gtw_edit' => true,
+       'gtw_update' => true,
+       'gtw_delete' => true,
+       'host' => true,
+       'host_show' => true,
+       'host_new' => true,
+       'host_create' => true,
+       'host_edit' => true,
+       'host_update' => true,
+       'host_delete' => true,
+       'ss' => true,
+       'ss_show' => true,
+       'ss_new' => true,
+       'ss_create' => true,
+       'ss_edit' => true,
+       'ss_update' => true,
+       'ss_delete' => true,
     );
 
     /**
@@ -124,143 +145,248 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         return array(array (), array (  '_controller' => 'Sensio\\Bundle\\DistributionBundle\\Controller\\ConfiguratorController::finalAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/_configurator/final',  ),));
     }
 
-    private function getmachineRouteInfo()
+    private function getbddRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/machine',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/bdd',  ),));
     }
 
-    private function getmachine_showRouteInfo()
+    private function getbdd_showRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::showAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/machine/show',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/bdd',  ),));
     }
 
-    private function getmachine_editRouteInfo()
+    private function getbdd_newRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::editAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/machine/edit',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/bdd/new',  ),));
     }
 
-    private function getmachine_deleteRouteInfo()
+    private function getbdd_createRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::deleteAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/machine/delete',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/siebel/bdd/create',  ),));
     }
 
-    private function getmachine_updateRouteInfo()
+    private function getbdd_editRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::updateAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/machine/update',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/bdd',  ),));
     }
 
-    private function getmachine_createRouteInfo()
+    private function getbdd_updateRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::createAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/machine/create',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/bdd',  ),));
     }
 
-    private function getmachine_newRouteInfo()
+    private function getbdd_deleteRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\MachineController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/machine/add',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\BddController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/bdd',  ),));
     }
 
-    private function getgatewayRouteInfo()
+    private function getcontexteRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/gtw',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/contxt/',  ),));
     }
 
-    private function getgateway_showRouteInfo()
+    private function getcontexte_showRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::showAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/gtw/show',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/contxt',  ),));
     }
 
-    private function getgateway_editRouteInfo()
+    private function getcontexte_newRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::editAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/gtw/edit',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/contxt/new',  ),));
     }
 
-    private function getgateway_deleteRouteInfo()
+    private function getcontexte_createRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::deleteAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/gtw/delete',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/siebel/contxt/create',  ),));
     }
 
-    private function getgateway_updateRouteInfo()
+    private function getcontexte_editRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::updateAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/gtw/update',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/contxt',  ),));
     }
 
-    private function getgateway_createRouteInfo()
+    private function getcontexte_updateRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::createAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/gtw/create',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/contxt',  ),));
     }
 
-    private function getgateway_newRouteInfo()
+    private function getcontexte_deleteRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/gtw/add',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\ContexteController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/contxt',  ),));
     }
 
-    private function getenterpriseserverRouteInfo()
+    private function getesRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/es',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/es/',  ),));
     }
 
-    private function getenterpriseserver_showRouteInfo()
+    private function getes_showRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::showAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/es/show',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/es',  ),));
     }
 
-    private function getenterpriseserver_editRouteInfo()
+    private function getes_newRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::editAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/es/edit',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/es/new',  ),));
     }
 
-    private function getenterpriseserver_deleteRouteInfo()
+    private function getes_createRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::deleteAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/es/delete',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/siebel/es/create',  ),));
     }
 
-    private function getenterpriseserver_updateRouteInfo()
+    private function getes_editRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::updateAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/es/update',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/es',  ),));
     }
 
-    private function getenterpriseserver_createRouteInfo()
+    private function getes_updateRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::createAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/es/create',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/es',  ),));
     }
 
-    private function getenterpriseserver_newRouteInfo()
+    private function getes_deleteRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/es/add',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnterpriseServerController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/es',  ),));
     }
 
-    private function getsiebelserverRouteInfo()
+    private function getenvRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/ss',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/env/',  ),));
     }
 
-    private function getsiebelserver_showRouteInfo()
+    private function getenv_showRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::showAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/ss/show',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/env',  ),));
     }
 
-    private function getsiebelserver_editRouteInfo()
+    private function getenv_newRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::editAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/ss/edit',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/env/new',  ),));
     }
 
-    private function getsiebelserver_deleteRouteInfo()
+    private function getenv_createRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::deleteAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/ss/delete',  ),));
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/siebel/env/create',  ),));
     }
 
-    private function getsiebelserver_updateRouteInfo()
+    private function getenv_editRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::updateAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/siebel/ss/update',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/env',  ),));
     }
 
-    private function getsiebelserver_createRouteInfo()
+    private function getenv_updateRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::createAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/ss/create',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/env',  ),));
     }
 
-    private function getsiebelserver_newRouteInfo()
+    private function getenv_deleteRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/ss/add',  ),));
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\EnvironnementController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/env',  ),));
+    }
+
+    private function getgtwRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/gtw/',  ),));
+    }
+
+    private function getgtw_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/gtw',  ),));
+    }
+
+    private function getgtw_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/gtw/new',  ),));
+    }
+
+    private function getgtw_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/siebel/gtw/create',  ),));
+    }
+
+    private function getgtw_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/gtw',  ),));
+    }
+
+    private function getgtw_updateRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/gtw',  ),));
+    }
+
+    private function getgtw_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\GatewayController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/gtw',  ),));
+    }
+
+    private function gethostRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/host/',  ),));
+    }
+
+    private function gethost_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/host',  ),));
+    }
+
+    private function gethost_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/host/new',  ),));
+    }
+
+    private function gethost_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/siebel/host/create',  ),));
+    }
+
+    private function gethost_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/host',  ),));
+    }
+
+    private function gethost_updateRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/host',  ),));
+    }
+
+    private function gethost_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\HostController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/host',  ),));
+    }
+
+    private function getssRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/ss/',  ),));
+    }
+
+    private function getss_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/ss',  ),));
+    }
+
+    private function getss_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/siebel/ss/new',  ),));
+    }
+
+    private function getss_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/siebel/ss/create',  ),));
+    }
+
+    private function getss_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/ss',  ),));
+    }
+
+    private function getss_updateRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/ss',  ),));
+    }
+
+    private function getss_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Batna\\Bundle\\ArchiSiebelBundle\\Controller\\SiebelServerController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/siebel/ss',  ),));
     }
 }

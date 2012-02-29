@@ -3,24 +3,19 @@
 namespace Batna\Bundle\ArchiSiebelBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use Batna\Bundle\ArchiSiebelBundle\Entity\Gateway;
 use Batna\Bundle\ArchiSiebelBundle\Form\GatewayType;
 
 /**
  * Gateway controller.
  *
- * @Route("/gateway")
  */
 class GatewayController extends Controller
 {
     /**
      * Lists all Gateway entities.
      *
-     * @Route("/", name="gateway")
-     * @Template()
      */
     public function indexAction()
     {
@@ -28,14 +23,14 @@ class GatewayController extends Controller
 
         $entities = $em->getRepository('BatnaArchiSiebelBundle:Gateway')->findAll();
 
-        return array('entities' => $entities);
+        return $this->render('BatnaArchiSiebelBundle:Gateway:index.html.twig', array(
+            'entities' => $entities
+        ));
     }
 
     /**
      * Finds and displays a Gateway entity.
      *
-     * @Route("/{id}/show", name="gateway_show")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -49,34 +44,31 @@ class GatewayController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:Gateway:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'delete_form' => $deleteForm->createView(),
+
+        ));
     }
 
     /**
      * Displays a form to create a new Gateway entity.
      *
-     * @Route("/new", name="gateway_new")
-     * @Template()
      */
     public function newAction()
     {
         $entity = new Gateway();
         $form   = $this->createForm(new GatewayType(), $entity);
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:Gateway:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
      * Creates a new Gateway entity.
      *
-     * @Route("/create", name="gateway_create")
-     * @Method("post")
-     * @Template("BatnaArchiSiebelBundle:Gateway:new.html.twig")
      */
     public function createAction()
     {
@@ -90,21 +82,19 @@ class GatewayController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('gateway_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('gtw_show', array('id' => $entity->getId())));
             
         }
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:Gateway:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
-        );
+        ));
     }
 
     /**
      * Displays a form to edit an existing Gateway entity.
      *
-     * @Route("/{id}/edit", name="gateway_edit")
-     * @Template()
      */
     public function editAction($id)
     {
@@ -119,19 +109,16 @@ class GatewayController extends Controller
         $editForm = $this->createForm(new GatewayType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:Gateway:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Edits an existing Gateway entity.
      *
-     * @Route("/{id}/update", name="gateway_update")
-     * @Method("post")
-     * @Template("BatnaArchiSiebelBundle:Gateway:edit.html.twig")
      */
     public function updateAction($id)
     {
@@ -154,21 +141,19 @@ class GatewayController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('gateway_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('gtw_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('BatnaArchiSiebelBundle:Gateway:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Deletes a Gateway entity.
      *
-     * @Route("/{id}/delete", name="gateway_delete")
-     * @Method("post")
      */
     public function deleteAction($id)
     {
@@ -189,7 +174,7 @@ class GatewayController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('gateway'));
+        return $this->redirect($this->generateUrl('gtw'));
     }
 
     private function createDeleteForm($id)

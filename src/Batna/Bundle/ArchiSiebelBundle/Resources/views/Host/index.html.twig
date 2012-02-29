@@ -1,0 +1,50 @@
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} - Liste des machines{% endblock %}
+{% block batnaarchi_body %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+            <span class="mws-i-24 i-table-1">Liste des machines</span>
+    </div>
+    <div class="mws-panel-body">
+        <div class="mws-panel-toolbar top clearfix">
+            <ul>
+                <li><a href="{{ path('host_new') }}" class="mws-ic-16 ic-page">Nouveau</a></li>
+            </ul>
+        </div>
+        <table class="mws-datatable-fn mws-table">
+            <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Hostname</th>
+                    <th>IP</th>
+                    <th>Type</th>
+                    <th>OS</th>
+                    <th>RAM</th>
+                    <th>CPU #</th>
+                    <th>CPU MHz</th>
+                    <th>Parent</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>
+                        <a href="{{ path('host_show', { 'id': entity.id }) }}"><div class="clearfix mws-ic-16 ic-view" style="width:20px;float:left;">&nbsp;</div></a>
+                        <a href="{{ path('host_edit', { 'id': entity.id }) }}"><div class="clearfix mws-ic-16 ic-edit" style="width:20px;float:left;">&nbsp;</div></a>
+                        <a href="{{ path('host_delete', { 'id': entity.id }) }}"><div class="clearfix mws-ic-16 ic-cross" style="width:20px;float:left;">&nbsp;</div></a>
+                    </td>
+                    <td>{{ entity.hostname }}</td>
+                    <td>{{ entity.ip }}</td>
+                    <td>{{ entity.type }}</td>
+                    <td>{{ entity.os }}</td>
+                    <td>{{ entity.ram }}</td>
+                    <td>{{ entity.cpuCore }}</td>
+                    <td>{{ entity.cpuFrequency }}</td>
+                    <td>{{ entity.parent }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

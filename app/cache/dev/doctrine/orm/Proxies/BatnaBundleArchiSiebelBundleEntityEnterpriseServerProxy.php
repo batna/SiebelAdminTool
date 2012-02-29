@@ -36,28 +36,28 @@ class BatnaBundleArchiSiebelBundleEntityEnterpriseServerProxy extends \Batna\Bun
     }
     
     
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
     public function getId()
     {
         $this->__load();
         return parent::getId();
     }
 
-    public function setNom($nom)
+    public function setLogicalName($logicalName)
     {
         $this->__load();
-        return parent::setNom($nom);
+        return parent::setLogicalName($logicalName);
     }
 
-    public function getNom()
+    public function getLogicalName()
     {
         $this->__load();
-        return parent::getNom();
-    }
-
-    public function __toString()
-    {
-        $this->__load();
-        return parent::__toString();
+        return parent::getLogicalName();
     }
 
     public function setDescription($description)
@@ -84,22 +84,10 @@ class BatnaBundleArchiSiebelBundleEntityEnterpriseServerProxy extends \Batna\Bun
         return parent::getGateway();
     }
 
-    public function setMachine($machine)
-    {
-        $this->__load();
-        return parent::setMachine($machine);
-    }
-
-    public function getMachine()
-    {
-        $this->__load();
-        return parent::getMachine();
-    }
-
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'nom', 'description', 'gateway', 'machine');
+        return array('__isInitialized__', 'id', 'logicalName', 'description', 'gateway');
     }
 
     public function __clone()

@@ -107,6 +107,17 @@ class Machine
     {
         return $this->hostname;
     }
+    
+    /**
+     * To String
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return $this->hostname;
+    }
+    
 
     /**
      * Set ip

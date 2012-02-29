@@ -10,8 +10,11 @@ class GatewayType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('machine')
+            ->add('port')
+            ->add('description')
+            ->add('host')
+            ->add('environnement')
+            ->add('bdd')
         ;
     }
 

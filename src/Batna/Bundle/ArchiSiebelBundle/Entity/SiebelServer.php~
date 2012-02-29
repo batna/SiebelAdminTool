@@ -22,33 +22,49 @@ class SiebelServer
     private $id;
 
     /**
-     * @var string $nom
+     * @var string $logicalName
      *
-     * @ORM\Column(name="nom", type="string", length=32)
+     * @ORM\Column(name="logicalName", type="string", length=255)
      */
-    private $nom;
+    private $logicalName;
 
     /**
-     * @var string $description
+     * @var integer $port
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="port", type="integer")
+     */
+    private $port;
+
+    /**
+     * @var text $description
+     *
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
      * @var integer $enterprise
      *
-     * @ORM\ManyToOne(targetEntity="Enterprise")
+     * @ORM\ManyToOne(targetEntity="Batna\Bundle\ArchiSiebelBundle\Entity\EnterpriseServer")
      */
     private $enterprise;
 
     /**
-     * @var integer $machine
+     * @var integer $host
      *
-     * @ORM\ManyToOne(targetEntity="Machine")
+     * @ORM\ManyToOne(targetEntity="Batna\Bundle\ArchiSiebelBundle\Entity\Machine")
      */
-    private $machine;
+    private $host;
 
+    /**
+     * To String
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return $this->logicalName;
+    }
 
     /**
      * Get id
@@ -61,29 +77,49 @@ class SiebelServer
     }
 
     /**
-     * Set nom
+     * Set logicalName
      *
-     * @param string $nom
+     * @param string $logicalName
      */
-    public function setNom($nom)
+    public function setLogicalName($logicalName)
     {
-        $this->nom = $nom;
+        $this->logicalName = $logicalName;
     }
 
     /**
-     * Get nom
+     * Get logicalName
      *
      * @return string 
      */
-    public function getNom()
+    public function getLogicalName()
     {
-        return $this->nom;
+        return $this->logicalName;
+    }
+
+    /**
+     * Set port
+     *
+     * @param integer $port
+     */
+    public function setPort($port)
+    {
+        $this->port = $port;
+    }
+
+    /**
+     * Get port
+     *
+     * @return integer 
+     */
+    public function getPort()
+    {
+        return $this->port;
     }
 
     /**
      * Set description
      *
-     * @param string $description
+     * @param text $description
      */
     public function setDescription($description)
     {
@@ -93,7 +129,7 @@ class SiebelServer
     /**
      * Get description
      *
-     * @return string 
+     * @return text 
      */
     public function getDescription()
     {
@@ -121,22 +157,22 @@ class SiebelServer
     }
 
     /**
-     * Set machine
+     * Set host
      *
-     * @param integer $machine
+     * @param integer $host
      */
-    public function setMachine($machine)
+    public function setHost($host)
     {
-        $this->machine = $machine;
+        $this->host = $host;
     }
 
     /**
-     * Get machine
+     * Get host
      *
      * @return integer 
      */
-    public function getMachine()
+    public function getHost()
     {
-        return $this->machine;
+        return $this->host;
     }
 }

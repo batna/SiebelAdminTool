@@ -10,10 +10,9 @@ class EnterpriseServerType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('nom')
+            ->add('logicalName')
             ->add('description')
             ->add('gateway')
-            ->add('machine')
         ;
     }
 

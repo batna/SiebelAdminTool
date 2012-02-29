@@ -10,10 +10,11 @@ class SiebelServerType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('nom')
+            ->add('logicalName')
+            ->add('port')
             ->add('description')
             ->add('enterprise')
-            ->add('machine')
+            ->add('host')
         ;
     }
 

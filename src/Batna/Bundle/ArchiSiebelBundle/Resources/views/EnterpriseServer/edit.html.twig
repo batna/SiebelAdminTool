@@ -1,22 +1,28 @@
-<h1>EnterpriseServer edit</h1>
-
-<form action="{{ path('enterpriseserver_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit">Edit</button>
-    </p>
-</form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('enterpriseserver') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('enterpriseserver_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} - Modification d'un enterprise server{% endblock %}
+{% block batnaarchi_body %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-table-1">Modification d'un enterprise server</span>
+    </div>
+    <div class="mws-panel-body">
+    	<div class="mws-panel-toolbar top clearfix">
+        	<ul>
+            	<li><a href="{{ path('es') }}" class="mws-ic-16 ic-application-view-list">Voir la liste</a></li>
+            </ul>
+        </div>
+        <div style="margin:10px">
+            <form class="mws-form" action="{{ path('es_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                <div class="mws-form-row">
+                {{ form_widget(edit_form) }}
+                </div>
+                <div class="mws-button-row">
+                	
+                	<input type="reset" value="Annuler" class="mws-button red small" />
+                	<input type="submit" value="Modifier" class="mws-button black small" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

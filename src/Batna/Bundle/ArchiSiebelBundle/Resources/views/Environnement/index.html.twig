@@ -1,0 +1,40 @@
+{% extends "BatnaArchiSiebelBundle::layout.html.twig" %}
+{% block title %}{{ parent() }} - Liste des environnements{% endblock %}
+{% block batnaarchi_body %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+            <span class="mws-i-24 i-table-1">Liste des environnements</span>
+    </div>
+    <div class="mws-panel-body">
+        <div class="mws-panel-toolbar top clearfix">
+            <ul>
+                <li><a href="{{ path('env_new') }}" class="mws-ic-16 ic-page">Nouvel environnement</a></li>
+            </ul>
+        </div>
+        <table class="mws-datatable-fn mws-table">
+            <thead>
+                <tr>
+            <th>Actions</th>
+            <th>Shortname</th>
+            <th>Longname</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>
+                <a href="{{ path('env_show', { 'id': entity.id }) }}"><div class="clearfix mws-ic-16 ic-view" style="width:20px;float:left;">&nbsp;</div></a>
+                <a href="{{ path('env_edit', { 'id': entity.id }) }}"><div class="clearfix mws-ic-16 ic-edit" style="width:20px;float:left;">&nbsp;</div></a>
+                <a href="{{ path('env_delete', { 'id': entity.id }) }}"><div class="clearfix mws-ic-16 ic-cross" style="width:20px;float:left;">&nbsp;</div></a>
+            </td>
+            <td>{{ entity.shortName }}</td>
+            <td>{{ entity.longName }}</td>
+            <td>{{ entity.description }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    </div>
+</div>
+{% endblock %}

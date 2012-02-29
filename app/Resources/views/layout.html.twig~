@@ -15,9 +15,8 @@
 <div id="mws-header" class="clearfix">
     <!-- Logo Wrapper -->
     <div id="mws-logo-container">
-    Batna Consulting
         <div id="mws-logo-wrap">
-            <img src="{{ asset('images/mws-logo.png') }}" alt="mws admin" />
+            <img src="{{ asset('img/batna.png') }}" alt="Batna" style="width:40px" /><span style="font-size:1.5em;color:grey;">Batna</spen>
          </div>
      </div>
  
@@ -35,7 +34,7 @@
                         <!-- Here Goes all the notifications -->
                      </ul>
                      <div class="mws-dropdown-viewall">
-                        <a href="#">View All Notifications</a>
+                        <a href="#">Voir toutes les notifications</a>
                      </div>
                  </div>
              </div>
@@ -51,7 +50,7 @@
                          <!-- Here goes all the messages -->
                       </ul>
                      <div class="mws-dropdown-viewall">
-                         <a href="#">View All Messages</a>
+                         <a href="#">Voir tous les messages</a>
                      </div>
                  </div>
              </div>
@@ -100,11 +99,36 @@
         <!-- Main Navigation -->
         <div id="mws-navigation">
             <ul>
-                  <li><a href="{{ path('machine') }}" class="mws-i-24 i-joomla">Machines</a></li>
-                  <li><a href="{{ path('gateway') }}" class="mws-i-24 i-plixi">Gateway</a></li>
-                  <li><a href="{{ path('enterpriseserver') }}" class="mws-i-24 i-globe">Enterprise</a></li>
-                  <li><a href="{{ path('siebelserver') }}" class="mws-i-24 i-abacus">Server</a></li>
+                <li>
+                    <a href="#" class="mws-i-24 i-abacus">Référentiel</a>
+                    <ul>
+                        <li><a href="{{ path('host') }}">Machines</a></li>
+                        <li><a href="{{ path('gtw') }}">Gateway</a></li>
+                        <li><a href="{{ path('es') }}">Enterprise</a></li>
+                        <li><a href="{{ path('ss') }}">Server</a></li>
+                        <li><a href="{{ path('bdd') }}">Base de données</a></li>
+                        <li><a href="{{ path('contexte') }}">Contexte</a></li>
+                        <li><a href="{{ path('env') }}">Environnement</a></li>  
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="mws-i-24 i-graph">Monitoring</a>
+                    <ul>
+                        <li><a href="#">Espaces disque</a></li>
+                        <li><a href="#">Volumes des bases</a></li>
+                        <li><a href="#">Utilisateurs déclarés</a></li>
+                        <li><a href="#">Utilisateurs connecté</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="mws-i-24 i-lock-locked">Administration</a>
+                    <ul>
+                        <li><a href="#">Auto discovery</a></li>
+                        <li><a href="#">Gestion des accès</a></li>
+                    </ul>
+                </li>
             </ul>
+        
         </div>
         <!-- End Navigation -->
  
