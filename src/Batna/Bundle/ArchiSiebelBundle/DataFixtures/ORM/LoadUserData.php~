@@ -1,0 +1,25 @@
+<?php
+
+namespace Batna\ArchiSiebelBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Batna\ArchiSiebelBundle\Entity\Host;
+
+class LoadHostData implements FixtureInterface
+{
+    public function load(EntityManager $manager)
+    {
+        $host = new Host();
+        $host->setHostname('BAT0001');
+        $host->setIP('255.255.255.255');
+        $host->setType('P');
+        $host->setOS('Windows Server');
+        $host->setRam('1024');
+        $host->setCpuCore('4');
+        $host->setFrequency('2.5');
+        $host->setParent('0');
+
+        $manager->persist($host);
+        $manager->flush();
+    }
+}

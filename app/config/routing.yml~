@@ -1,3 +1,11 @@
+BatnaUserBundle:
+    resource: "@BatnaUserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
 BatnaArchiSiebelBundle:
     resource: "@BatnaArchiSiebelBundle/Resources/config/routing.yml"
-    prefix:   /Siebel
+    prefix:   /siebel
+
+fos_user_security:
+    resource: "@BatnaUserBundle/Resources/config/routing.xml"
+    prefix:   /

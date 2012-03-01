@@ -118,6 +118,8 @@
                         <li><a href="#">Volumes des bases</a></li>
                         <li><a href="#">Utilisateurs déclarés</a></li>
                         <li><a href="#">Utilisateurs connecté</a></li>
+                        <li><a href="#">Crash</a></li>
+                        <li><a href="#">Event Viewer</a></li>
                     </ul>
                 </li>
                 <li>
@@ -138,13 +140,13 @@
     <div id="mws-container" class="clearfix">
      
         <!-- Main Container -->
-        <div class="container">
+        <div class="container" style="min-height:7320px;">
         {% block batnaarchi_body %}{% endblock %}
         </div>
         <!-- End Main Container -->
          
         <!-- Footer -->
-        <div id="mws-footer" style="min-height:1000px;">
+        <div id="mws-footer">
             Batna 2012. Tous droits réservés.
         </div>
         <!-- End Footer -->

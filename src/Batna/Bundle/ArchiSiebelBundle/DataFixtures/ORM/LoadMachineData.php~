@@ -3,13 +3,13 @@
 namespace Batna\ArchiSiebelBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
-use Batna\ArchiSiebelBundle\Entity\Machine;
+use Batna\ArchiSiebelBundle\Entity\Host;
 
-class LoadMachineData implements FixtureInterface
+class LoadHostData implements FixtureInterface
 {
     public function load($manager)
     {    
-        $machines = array(
+        $hosts = array(
                         array('hostname'=>"BAT001", 
                                 'ip'=>'127.0.0.1', 
                                 'type'=>'P', 
@@ -21,11 +21,17 @@ class LoadMachineData implements FixtureInterface
                                );
 
 
-        foreach($machines as $m)
+        foreach($hosts as $m)
         {
-            $machine  = new Machine();
-            $machine->setHostname($m['hostname']);
-            
+            $host  = new Host();
+            $host->setHostname($m['hostname']);
+            $host->setIp($m['ip']);
+            $host->setType($m['type']);
+            $host->setOs($m['os']);
+            $host->setRam($m['ram']);
+            $host->setCpuCore($m['cpuCore']);
+            $host->setCpuFrequency($m['cpuFrequency']);
+            $host->setParent($m['parent']);
             $manager->persist($m);
         }        
         $manager->flush();

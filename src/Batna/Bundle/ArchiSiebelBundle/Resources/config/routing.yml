@@ -1,216 +1,28 @@
-bdd:
-    pattern:  /bdd
-    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:index" }
-
-bdd_show:
-    pattern:  /bdd/{id}/show
-    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:show" }
-
-bdd_new:
-    pattern:  /bdd/new
-    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:new" }
-
-bdd_create:
-    pattern:  /bdd/create
-    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:create" }
-    requirements: { _method: post }
-
-bdd_edit:
-    pattern:  /bdd/{id}/edit
-    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:edit" }
-
-bdd_update:
-    pattern:  /bdd/{id}/update
-    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:update" }
-    requirements: { _method: post }
-
-bdd_delete:
-    pattern:  /bdd/{id}/delete
-    defaults: { _controller: "BatnaArchiSiebelBundle:Bdd:delete" }
-    requirements: { _method: post }
-
-contexte:
-    pattern:  /contxt/
-    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:index" }
-
-contexte_show:
-    pattern:  /contxt/{id}/show
-    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:show" }
-
-contexte_new:
-    pattern:  /contxt/new
-    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:new" }
-
-contexte_create:
-    pattern:  /contxt/create
-    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:create" }
-    requirements: { _method: post }
-
-contexte_edit:
-    pattern:  /contxt/{id}/edit
-    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:edit" }
-
-contexte_update:
-    pattern:  /contxt/{id}/update
-    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:update" }
-    requirements: { _method: post }
-
-contexte_delete:
-    pattern:  /contxt/{id}/delete
-    defaults: { _controller: "BatnaArchiSiebelBundle:Contexte:delete" }
-    requirements: { _method: post }
+gateway:
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing/gateway.yml"
+    prefix:   /gtw
     
-es:
-    pattern:  /es/
-    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:index" }
+siebelserver:
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing/siebelserver.yml"
+    prefix:   /ss
 
-es_show:
-    pattern:  /es/{id}/show
-    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:show" }
-
-es_new:
-    pattern:  /es/new
-    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:new" }
-
-es_create:
-    pattern:  /es/create
-    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:create" }
-    requirements: { _method: post }
-
-es_edit:
-    pattern:  /es/{id}/edit
-    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:edit" }
-
-es_update:
-    pattern:  /es/{id}/update
-    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:update" }
-    requirements: { _method: post }
-
-es_delete:
-    pattern:  /es/{id}/delete
-    defaults: { _controller: "BatnaArchiSiebelBundle:EnterpriseServer:delete" }
-    requirements: { _method: post }
-
-env:
-    pattern:  /env/
-    defaults: { _controller: "BatnaArchiSiebelBundle:Environnement:index" }
-
-env_show:
-    pattern:  /env/{id}/show
-    defaults: { _controller: "BatnaArchiSiebelBundle:Environnement:show" }
-
-env_new:
-    pattern:  /env/new
-    defaults: { _controller: "BatnaArchiSiebelBundle:Environnement:new" }
-
-env_create:
-    pattern:  /env/create
-    defaults: { _controller: "BatnaArchiSiebelBundle:Environnement:create" }
-    requirements: { _method: post }
-
-env_edit:
-    pattern:  /env/{id}/edit
-    defaults: { _controller: "BatnaArchiSiebelBundle:Environnement:edit" }
-
-env_update:
-    pattern:  /env/{id}/update
-    defaults: { _controller: "BatnaArchiSiebelBundle:Environnement:update" }
-    requirements: { _method: post }
-
-env_delete:
-    pattern:  /env/{id}/delete
-    defaults: { _controller: "BatnaArchiSiebelBundle:Environnement:delete" }
-    requirements: { _method: post }
-
-gtw:
-    pattern:  /gtw/
-    defaults: { _controller: "BatnaArchiSiebelBundle:Gateway:index" }
-
-gtw_show:
-    pattern:  /gtw/{id}/show
-    defaults: { _controller: "BatnaArchiSiebelBundle:Gateway:show" }
-
-gtw_new:
-    pattern:  /gtw/new
-    defaults: { _controller: "BatnaArchiSiebelBundle:Gateway:new" }
-
-gtw_create:
-    pattern:  /gtw/create
-    defaults: { _controller: "BatnaArchiSiebelBundle:Gateway:create" }
-    requirements: { _method: post }
-
-gtw_edit:
-    pattern:  /gtw/{id}/edit
-    defaults: { _controller: "BatnaArchiSiebelBundle:Gateway:edit" }
-
-gtw_update:
-    pattern:  /gtw/{id}/update
-    defaults: { _controller: "BatnaArchiSiebelBundle:Gateway:update" }
-    requirements: { _method: post }
-
-gtw_delete:
-    pattern:  /gtw/{id}/delete
-    defaults: { _controller: "BatnaArchiSiebelBundle:Gateway:delete" }
-    requirements: { _method: post }
+enterpriseserver:
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing/enterpriseserver.yml"
+    prefix:   /es
 
 host:
-    pattern:  /host/
-    defaults: { _controller: "BatnaArchiSiebelBundle:Host:index" }
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing/host.yml"
+    prefix:   /host
 
-host_show:
-    pattern:  /host/{id}/show
-    defaults: { _controller: "BatnaArchiSiebelBundle:Host:show" }
+env:
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing/environnement.yml"
+    prefix:   /env
 
-host_new:
-    pattern:  /host/new
-    defaults: { _controller: "BatnaArchiSiebelBundle:Host:new" }
+contexte:
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing/contexte.yml"
+    prefix:   /contxt
 
-host_create:
-    pattern:  /host/create
-    defaults: { _controller: "BatnaArchiSiebelBundle:Host:create" }
-    requirements: { _method: post }
+bdd:
+    resource: "@BatnaArchiSiebelBundle/Resources/config/routing/bdd.yml"
+    prefix:   /bdd
 
-host_edit:
-    pattern:  /host/{id}/edit
-    defaults: { _controller: "BatnaArchiSiebelBundle:Host:edit" }
-
-host_update:
-    pattern:  /host/{id}/update
-    defaults: { _controller: "BatnaArchiSiebelBundle:Host:update" }
-    requirements: { _method: post }
-
-host_delete:
-    pattern:  /host/{id}/delete
-    defaults: { _controller: "BatnaArchiSiebelBundle:Host:delete" }
-    requirements: { _method: post }
-    
-ss:
-    pattern:  /ss/
-    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:index" }
-
-ss_show:
-    pattern:  /ss/{id}/show
-    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:show" }
-
-ss_new:
-    pattern:  /ss/new
-    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:new" }
-
-ss_create:
-    pattern:  /ss/create
-    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:create" }
-    requirements: { _method: post }
-
-ss_edit:
-    pattern:  /ss/{id}/edit
-    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:edit" }
-
-ss_update:
-    pattern:  /ss/{id}/update
-    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:update" }
-    requirements: { _method: post }
-
-ss_delete:
-    pattern:  /ss/{id}/delete
-    defaults: { _controller: "BatnaArchiSiebelBundle:SiebelServer:delete" }
-    requirements: { _method: post }
